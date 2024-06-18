@@ -13,8 +13,24 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        'font-black': '#000000',
+        customColor: "rgba(0,0,0,0.5)",
+        customColors: "rgba(0,0,0,0.5)",
+        navy: {
+          800: '#002436',
+          900: '#000024',
+        },
+      },
+      gradientColorStops: {
+        'transparent-black': 'rgba(0,0,0,0)',
+      },
+      linearGradientColors: {
+        'custom-gradient': ['var(--font-black)', 'var(--gradient-color-stops-transparent-black)'],
+      },
+      scrollbar: ['dark', 'rounded'],
     },
   },
-  plugins: [],
+  plugins: [require('daisyui'),require('tailwind-scrollbar-daisyui')] ,
 };
 export default config;
