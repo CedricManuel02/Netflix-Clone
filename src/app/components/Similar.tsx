@@ -1,10 +1,10 @@
 import React from "react";
 import Grid from "./shared/Grid";
 import Card from "./shared/Card";
-import getSimilarMovies from "../api/getSimilarMovies";
+import getSimilarMovies from "../action/getSimilarMovies";
 
-export default async function Similar(id: any) {
-  const { results } = await getSimilarMovies(id);
+export default async function Similar({id, type}: any) {
+  const { results } = await getSimilarMovies({id, type});
   return (
     <React.Fragment>
       {results.length > 0 ? (
@@ -20,7 +20,7 @@ export default async function Similar(id: any) {
                 <Card
                   key={movie.id}
                   id={movie.id}
-                  type={"movie"}
+                  type={type}
                   poster_path={movie.poster_path}
                 />
               ))}

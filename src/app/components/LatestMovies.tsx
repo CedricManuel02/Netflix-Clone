@@ -1,6 +1,6 @@
 import React from "react";
 import Grid from "./shared/Grid";
-import getLatestMovies from "../api/getLatestMoviest";
+import getLatestMovies from "../action/getLatestMoviest";
 import Card from "./shared/Card";
 
 export default async function LatestMovies() {

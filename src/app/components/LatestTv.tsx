@@ -1,6 +1,6 @@
 import React from "react";
 import Grid from "./shared/Grid";
-import getLatestTv from "../api/getLatestTv";
+import getLatestTv from "../action/getLatestTv";
 import Card from "./shared/Card";
 
 export default async function LatestTv() {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import getNowPlaying from "../api/getNowPlaying";
+import getNowPlaying from "../action/getNowPlaying";
 import {
   BACKDROP_PATH,
   MOVIE_OVERVIEW_LENGHT,
@@ -19,6 +19,7 @@ export default async function HeroSection() {
       </span>
     );
   };
+
   return (
     <div className="w-full h-[550px] lg:h-screen relative">
       <div className="w-full relative h-64 sm:h-64 md:h-96 lg:h-screen xl:h-screen 2xl:h-screen">
@@ -32,7 +33,7 @@ export default async function HeroSection() {
       <div className="w-full h-screen z-20 absolute top-0 py-0 px-5 text-sm sm:text-sm md:text-base lg:text-base xl:text-base 2xl:text-base sm:py-0 sm:px-5 md:py-20 md:px-10 lg:py-24 lg:px-20 xl:py-32 xl:px-20 2xl:py-32 2xl:px-20">
         <div className="flex flex-col justify-center z-20 pt-20">
           <img
-            className="w-7/12 h-44 lg:h-80 xl:h-80 object-contain m-auto sm:m-auto md:m-auto lg:m-0 xl:m-0 2xl:m-0 md:w-6/12 lg:w-4/12 xl:w-4/12 2xl:w-4/12 py-10 "
+            className="w-7/12 h-44 lg:h-80 xl:h-80 bg-blend-darken object-contain m-auto sm:m-auto md:m-auto lg:m-0 xl:m-0 2xl:m-0 md:w-6/12 lg:w-4/12 xl:w-4/12 2xl:w-4/12 py-10 "
             src={`${POSTER_PATH}${logo}`}
             alt="Logo"
           />
@@ -84,7 +85,7 @@ export default async function HeroSection() {
               ? `${data?.overview.slice(0, MOVIE_OVERVIEW_LENGHT)}...`
               : data?.overview}
           </p>
-          <a href={`/Movies/movie/${data?.id}`} className="btn btn-outline text-white w-full my-10  sm:w-44">
+          <a href={`/Info/movie/${data?.id}`} className="btn btn-outline text-white w-full my-10  sm:w-44">
             Details
           </a>
         </div>

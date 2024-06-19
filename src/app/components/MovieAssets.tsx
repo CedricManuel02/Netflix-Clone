@@ -1,10 +1,11 @@
 "use client";
 import React, { useRef, useState } from "react";
 import Grid from "./shared/Grid";
-import { BACKDROP_PATH } from "../constant/constant";
-import { Play } from "lucide-react";
+import { BACKDROP_PATH, NAME_LENGTH, POSTER_NO_IMAGE, POSTER_PATH } from "../constant/constant";
+import { Activity, Play } from "lucide-react";
+import Link from "next/link";
 
-export default function MovieAssets({ posters, backdrops, results }: any) {
+export default function MovieAssets({ posters, backdrops, results, cast }: any) {
   const [index, setIndex] = useState<Number>(0);
   const [video, setVideo] = useState<String>();
   const modalRef = useRef<HTMLDialogElement | null>(null);
@@ -16,35 +17,78 @@ export default function MovieAssets({ posters, backdrops, results }: any) {
   };
   return (
     <div className="h-auto w-full px-4 lg:px-10 xl:px-20 relative z-20">
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 flex-wrap">
+      {cast.length > 0 ? (
+          <button
+            className={`btn flex-grow md:flex-grow-0 ${index === 0 ? "btn-default" : " btn-outline"}`}
+            onClick={() => setIndex(0)}
+          >
+            Cast
+          </button>
+        ) : null}
         {posters.length > 0 ? (
           <button
-            className={`btn ${index === 0 ? "btn-default" : " btn-outline"}`}
-            onClick={() => setIndex(0)}
+            className={`btn flex-grow md:flex-grow-0 ${index === 1 ? "btn-default" : " btn-outline"}`}
+            onClick={() => setIndex(1)}
           >
             Posters
           </button>
         ) : null}
         {backdrops.length > 0 ? (
           <button
-            className={`btn ${index === 1 ? "btn-default" : " btn-outline"}`}
-            onClick={() => setIndex(1)}
+            className={`btn flex-grow md:flex-grow-0 ${index === 2 ? "btn-default" : " btn-outline"}`}
+            onClick={() => setIndex(2)}
           >
             Backdrops
           </button>
         ) : null}
         {results.length > 0 ? (
           <button
-            className={`btn ${index === 2 ? "btn-default" : " btn-outline"}`}
-            onClick={() => setIndex(2)}
+            className={`btn flex-grow md:flex-grow-0 ${index === 3 ? "btn-default" : " btn-outline"}`}
+            onClick={() => setIndex(3)}
           >
             Videos
           </button>
         ) : null}
       </div>
       <Grid>
-        {index === 0
-          ? posters &&
+        {index === 0 ? 
+          cast &&
+            cast.map((cast: any) => (
+              <Link
+                href={`/Person/${cast.id}`}
+                key={cast.id}
+                className="cursor-pointer h-full rounded-sm min-w-36 lg:min-w-56 group "
+              >
+                <img
+                  className="rounded-sm w-full h-44 lg:h-80 object-cover transition-all duration-200 delay-100 group-hover:grayscale"
+                  src={
+                    cast?.profile_path
+                      ? `${POSTER_PATH}${cast.profile_path}`
+                      : POSTER_NO_IMAGE
+                  }
+                  alt={cast?.profile_path}
+                />
+                <figcaption className="flex flex-col py-2">
+                  <h3 className="text-sm">
+                    {cast?.original_name.length > NAME_LENGTH
+                      ? `${cast?.original_name.slice(0, NAME_LENGTH)}...`
+                      : cast?.original_name}
+                  </h3>
+                  <small className="text-slate-400 h-10">
+                    {cast?.character}
+                  </small>
+                  <div className="flex items-center justify-between text-xs lg:text-sm text-white font-medium">
+                    <p>{cast?.known_for_department}</p>
+                    <span className="flex items-center justify-center gap-2">
+                      <Activity size={15} className="text-yellow-500 " />
+                      <p>{cast?.popularity.toFixed(2)}</p>
+                    </span>
+                  </div>
+                </figcaption>
+              </Link>
+            ))
+          : index === 1 ? posters &&
             posters.map(({ file_path }: any) => (
               <div
                 key={file_path}
@@ -58,7 +102,7 @@ export default function MovieAssets({ posters, backdrops, results }: any) {
                 />
               </div>
             ))
-          : index === 1
+          : index === 2
           ? backdrops &&
             backdrops.map(({ file_path }: any) => (
               <div

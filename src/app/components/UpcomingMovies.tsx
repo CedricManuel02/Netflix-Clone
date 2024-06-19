@@ -1,6 +1,6 @@
 import React from "react";
 import Grid from "./shared/Grid";
-import getUpcomingMovies from "../api/getUpcomingMovies";
+import getUpcomingMovies from "../action/getUpcomingMovies";
 import Card from "./shared/Card";
 
 export default async function UpcomingMovies() {
