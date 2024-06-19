@@ -3,12 +3,11 @@ import getSearch from "@/app/action/getSearch";
 import Card from "@/app/components/shared/Card";
 import React, { useEffect, useState } from "react";
 
-export default function page({ params: { query } }: any) {
+export default function Category({ params: { query } }: any) {
   const [data, setData] = useState<[]>([]);
   useEffect(() => {
     const data = async () => {
       const { results } = await getSearch({ query });
-      console.log(results);
       setData(results);
     };
     data();
