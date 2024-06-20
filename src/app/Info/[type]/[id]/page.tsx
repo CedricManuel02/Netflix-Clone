@@ -6,6 +6,7 @@ import {
   BACKDROP_PATH,
   POSTER_PATH,
 } from "@/app/constant/constant";
+import { formatRuntime } from "@/app/utils/function";
 import { Activity, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
@@ -13,15 +14,7 @@ import React from "react";
 export default async function page({ params: { id, type } }: any) {
   const { data, logo, results, backdrops, posters, cast } =
     await getMovies(id, type);
-  const formatRuntime = (runtime: number) => {
-    const hours = Math.floor(runtime / 60);
-    const minutes = runtime % 60;
-    return (
-      <span>
-        {hours}h {minutes}m
-      </span>
-    );
-  };
+
   return (
     <div className="h-auto relative">
       <div className="w-full min-h-[800px] sm:h-[650px] lg:h-screen relative">
@@ -37,7 +30,7 @@ export default async function page({ params: { id, type } }: any) {
             </div>
           ) : null}
         </div>
-        <div className="w-full h-screen z-20 absolute top-0 py-0 px-5 text-sm sm:text-sm md:text-base lg:text-base xl:text-base 2xl:text-base sm:py-0 sm:px-5 md:py-12  lg:py-14 lg:px-10 xl:py-14 xl:px-20 2xl:py-14 2xl:px-20">
+        <div className="w-full h-full z-20 absolute top-0 py-0 px-5 text-sm sm:text-sm md:text-base lg:text-base xl:text-base 2xl:text-base sm:py-0 sm:px-5 md:py-12  lg:py-14 lg:px-10 xl:py-14 xl:px-20 2xl:py-14 2xl:px-20">
           <div className="flex flex-col justify-center z-20 pt-32">
             {logo ? (
               <img

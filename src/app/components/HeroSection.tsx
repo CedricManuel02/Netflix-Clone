@@ -7,19 +7,9 @@ import {
   POSTER_PATH,
 } from "../constant/constant";
 import { Activity } from "lucide-react";
+import { formatRuntime } from "../utils/function";
 export default async function HeroSection() {
-  const { data, logo }: any = await getNowPlaying();
-
-  const formatRuntime = (runtime: number) => {
-    const hours = Math.floor(runtime / 60);
-    const minutes = runtime % 60;
-    return (
-      <span>
-        {hours}h {minutes}m
-      </span>
-    );
-  };
-
+  const { data, logo }: any = await getNowPlaying()
   return (
     <div className="w-full h-[550px] lg:h-screen relative">
       <div className="w-full relative h-64 sm:h-64 md:h-96 lg:h-screen xl:h-screen 2xl:h-screen">
