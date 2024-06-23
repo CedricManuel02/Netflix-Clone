@@ -14,14 +14,14 @@ export default async function page({ params: { id } }: any) {
       <div className="h-auto w-full px-2 lg:px-10 xl:px-20 relative z-20">
         <div className="hero h-auto py-20">
           <div className="hero-content flex-col lg:flex-row">
-              <Image
-                src={`${POSTER_PATH}${data?.profile_path}`}
-                alt={data?.profile_path}
-                loading="lazy"
-                width={200}
-                height={200}
-                className="rounded-md"
-              />
+            <Image
+              src={`${POSTER_PATH}${data?.profile_path}`}
+              alt={data?.profile_path}
+              loading="lazy"
+              width={200}
+              height={200}
+              className="rounded-md"
+            />
             <div>
               <h1 className="text-2xl font-bold">{data?.name}</h1>
               <p className="py-3 font-medium text-slate-400 text-justify text-sm lg:text-left lg:text-md">
@@ -48,7 +48,7 @@ export default async function page({ params: { id } }: any) {
                     (
                     {new Date().getFullYear() -
                       new Date(data?.birthday).getFullYear()}
-                    ) year's old
+                    ) years old
                   </p>
                 </div>
                 <div className="p-2 flex-grow">
