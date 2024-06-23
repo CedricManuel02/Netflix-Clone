@@ -7,17 +7,16 @@ import {
   POSTER_PATH,
 } from "@/app/constant/constant";
 import { formatRuntime } from "@/app/utils/function";
-import { Activity, ChevronRight } from "lucide-react";
+import { Activity } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 export default async function page({ params: { id, type } }: any) {
-  const { data, logo, results, backdrops, posters, cast } =
-    await getMovies(id, type);
+  const { data, logo, results, backdrops, posters, cast } = await getMovies(id, type);
 
   return (
     <div className="h-auto relative">
-      <div className="w-full min-h-[800px] sm:h-[650px] lg:h-screen relative">
+      <div className="w-full min-h-[650px] sm:h-[650px] lg:h-screen relative">
         <div className="w-full relative h-64  md:h-96 lg:h-screen xl:h-screen 2xl:h-screen">
           {data?.backdrop_path ? (
             <div>
@@ -104,13 +103,9 @@ export default async function page({ params: { id, type } }: any) {
               ? `${data?.overview.slice(0, 350)}...`
               : data?.overview}
             </p>
-            <button className="btn btn-outline text-white w-full my-10  sm:w-44">
-              Random Trailer <ChevronRight />
-            </button>
           </div>
         </div>
       </div>
-      
       <MovieAssets
         posters={posters}
         backdrops={backdrops}
