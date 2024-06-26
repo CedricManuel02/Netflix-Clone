@@ -15,9 +15,9 @@ export default async function page({ params: { id, type } }: any) {
   const { data, logo, results, backdrops, posters, cast } = await getMovies(id, type);
 
   return (
-    <div className="h-auto relative">
-      <div className="w-full min-h-[650px] sm:h-[650px] lg:h-screen relative">
-        <div className="w-full relative h-64  md:h-96 lg:h-screen xl:h-screen 2xl:h-screen">
+    <div className="h-auto w-full">
+       <div className="w-full h-auto lg:h-screen">
+       <div className="w-full absolute h-64 sm:h-64 md:h-96 lg:h-screen xl:h-screen 2xl:h-screen">
           {data?.backdrop_path ? (
             <div>
               <div className="w-full h-full z-20 before:w-full before:h-full before:absolute before:top-0 before:left-0 before:bg-[rgba(0,0,0,0.7)] before:opacity-60 after:contents[''] after:absolute after:w-full after:h-full after:bottom-0 after:left-0 after:bg-gradient-to-t from-black to-transparent absolute"></div>
@@ -29,8 +29,8 @@ export default async function page({ params: { id, type } }: any) {
             </div>
           ) : null}
         </div>
-        <div className="w-full h-full z-20 absolute top-0 py-0 px-5 text-sm sm:text-sm md:text-base lg:text-base xl:text-base 2xl:text-base sm:py-0 sm:px-5 md:py-12  lg:py-14 lg:px-10 xl:py-14 xl:px-20 2xl:py-14 2xl:px-20">
-          <div className="flex flex-col justify-center z-20 pt-32">
+        <div className="relative py-20 z-20 w-full px-5 text-sm sm:text-sm md:text-base lg:text-base xl:text-base 2xl:text-base  lg:px-10 xl:px-20 2xl:px-20">
+        <div className="flex flex-col justify-center z-20 pt-20">
             {logo ? (
               <img
                 className="w-7/12 h-44 lg:h-80 xl:h-80 object-contain m-auto sm:m-auto md:m-auto lg:m-0 xl:m-0 2xl:m-0 md:w-6/12 lg:w-4/12 xl:w-4/12 2xl:w-4/12 py-10 "
@@ -99,9 +99,7 @@ export default async function page({ params: { id, type } }: any) {
               </span>
             </div>
             <p className="text-slate-400 text-justify lg:text-left w-full sm:w-full md:w-full lg:w-10/12 xl:w-5/12 2xl:w-5/12">
-            {data && data?.overview.length > 350
-              ? `${data?.overview.slice(0, 350)}...`
-              : data?.overview}
+            {data?.overview}
             </p>
           </div>
         </div>

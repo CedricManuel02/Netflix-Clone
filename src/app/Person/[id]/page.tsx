@@ -10,9 +10,9 @@ import React from "react";
 export default async function page({ params: { id } }: any) {
   const { data, cast } = await getPerson({ id });
   return (
-    <div className="w-full min-h-screen">
-      <div className="h-auto w-full px-2 lg:px-10 xl:px-20 relative z-20">
-        <div className="hero h-auto py-20">
+    <div className="w-full min-h-screen h-auto">
+      <div className="h-auto w-full flex items-center justify-start px-2 lg:px-10 xl:px-20 relative z-20">
+        <div className="hero my-auto py-20">
           <div className="hero-content flex-col lg:flex-row">
             <Image
               src={`${POSTER_PATH}${data?.profile_path}`}
