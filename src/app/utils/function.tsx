@@ -11,9 +11,14 @@
      export const formatRuntime = (runtime: number) => {
         const hours = Math.floor(runtime / 60);
         const minutes = runtime % 60;
-        return (
-          <span>
-            {hours}h {minutes}m
-          </span>
-        );
+        if(!Number.isNaN(hours) || !Number.isNaN(minutes)){
+          return (
+            <span>
+              {hours}h {minutes}m
+            </span>
+          );
+        }
+        return (<span>
+         N/A
+        </span>)
       };

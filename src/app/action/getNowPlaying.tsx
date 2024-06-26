@@ -4,13 +4,8 @@ import { header } from "../utils/function"
 export default async function getNowPlaying (){
 
     const axiosConfig = {
-        ...header,
-        headers: {
-          ...header.headers,
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0',
-        },
+        ...header
+       
       };
 
     const {data: {results}} = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", axiosConfig)

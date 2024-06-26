@@ -43,7 +43,7 @@ export default async function page({ params: { id, type } }: any) {
             <div className="text-slate-300 flex items-center flex-wrap text-xs justify-start gap-2 py-2">
               <p>
                 {data.release_date &&
-                  new Date(data?.release_date).getFullYear()}
+                 data.release_date ?  new Date(data?.release_date).getFullYear() : "N/A"}
               </p>
               <span>|</span>
               <div className="flex items-center justify-center gap-2">
