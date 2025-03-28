@@ -19,7 +19,7 @@ export default function Category({ params: { query } }: any) {
   );
 
   return (
-    <div className="min-h-screen h-auto py-32">
+    <div className="min-h-screen h-auto bg-black py-32">
       <div className="h-auto w-full px-4 py-2 lg:px-10 xl:px-20 z-40 relative">
         <header className="py-4">
           <h3 className=" text-white font-medium text-md md:text-xl">

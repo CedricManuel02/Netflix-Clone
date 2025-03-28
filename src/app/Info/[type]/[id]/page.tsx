@@ -15,7 +15,7 @@ export default async function page({ params: { id, type } }: any) {
   const { data, logo, results, backdrops, posters, cast } = await getMovies(id, type);
 
   return (
-    <div className="h-auto w-full">
+    <div className="h-auto w-full bg-black">
        <div className="w-full h-auto lg:h-screen">
        <div className="w-full absolute h-64 sm:h-64 md:h-96 lg:h-screen xl:h-screen 2xl:h-screen">
           {data?.backdrop_path ? (
@@ -38,7 +38,7 @@ export default async function page({ params: { id, type } }: any) {
                 alt="Logo"
               />
             ) : (
-              <h2 className="text-5xl">{data?.original_title}</h2>
+              <h2 className="text-5xl text-white">{data?.original_title}</h2>
             )}
             <div className="text-slate-300 flex items-center flex-wrap text-xs justify-start gap-2 py-2">
               <p>

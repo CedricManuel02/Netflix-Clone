@@ -20,7 +20,7 @@ export default function MovieAssets({ posters, backdrops, results, cast }: any) 
       <div className="flex items-center gap-2 flex-wrap">
       {cast.length > 0 ? (
           <button
-            className={`btn flex-grow md:flex-grow-0 ${index === 0 ? "btn-default" : " btn-outline"}`}
+            className={`btn flex-grow md:flex-grow-0 outline-white ${index === 0 ? "btn-default" : " btn-outline text-white"}`}
             onClick={() => setIndex(0)}
           >
             Cast
@@ -28,7 +28,7 @@ export default function MovieAssets({ posters, backdrops, results, cast }: any) 
         ) : null}
         {posters.length > 0 ? (
           <button
-            className={`btn flex-grow md:flex-grow-0 ${index === 1 ? "btn-default" : " btn-outline"}`}
+            className={`btn flex-grow md:flex-grow-0 outline-white ${index === 1 ? "btn-default" : " btn-outline text-white"}`}
             onClick={() => setIndex(1)}
           >
             Posters
@@ -36,7 +36,7 @@ export default function MovieAssets({ posters, backdrops, results, cast }: any) 
         ) : null}
         {backdrops.length > 0 ? (
           <button
-            className={`btn flex-grow md:flex-grow-0 ${index === 2 ? "btn-default" : " btn-outline"}`}
+            className={`btn flex-grow md:flex-grow-0 outline-white ${index === 2 ? "btn-default" : " btn-outline text-white"}`}
             onClick={() => setIndex(2)}
           >
             Backdrops
@@ -44,7 +44,7 @@ export default function MovieAssets({ posters, backdrops, results, cast }: any) 
         ) : null}
         {results.length > 0 ? (
           <button
-            className={`btn flex-grow md:flex-grow-0 ${index === 3 ? "btn-default" : " btn-outline"}`}
+            className={`btn flex-grow md:flex-grow-0 outline-white ${index === 3 ? "btn-default" : " btn-outline text-white"}`}
             onClick={() => setIndex(3)}
           >
             Videos

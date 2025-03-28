@@ -30,21 +30,21 @@ export default function Navbar() {
        <div className="form-control">
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Search Movie..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="input input-bordered w-full md:w-auto h-10 bg-transparent"
+            className="input input-bordered w-full md:w-auto h-10 bg-transparent text-white border-white focus:border-slate-500"
           />
         </div>
-        <label htmlFor="my_modal_7" className="text-sm font-semibold md:text-md cursor-pointer hover:text-slate-400">
+        <label htmlFor="my_modal_7" className="text-sm font-semibold md:text-md cursor-pointer text-white hover:text-slate-400">
           Login
         </label>
         <input type="checkbox" id="my_modal_7" className="modal-toggle" />
         <div className="modal" role="dialog">
           <div className="modal-box w-96">
-            <h3 className="font-bold text-xl">Sign in</h3>
-            <p className="text-slate-400">Sing in to your TMDB account</p>
+            <h3 className="font-bold text-xl text-white">Sign in</h3>
+            <p className="text-slate-400">Log in to your TMDB account</p>
             <form action={loginToTMDB}>
               <label className="form-control w-full">
                 <div className="label">
@@ -72,7 +72,7 @@ export default function Navbar() {
                 Login
               </button>
               <div className="divider text-xs my-0">or</div>
-              <button className="btn btn-default text-white my-4 w-full">
+              <button className="btn  text-white my-4 w-full">
                 Login as Guest
               </button>
             </form>
